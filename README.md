@@ -1,6 +1,10 @@
 # generator-nm-boilerplate 
 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+[![NPM version](https://img.shields.io/npm/v/generator-nm-boilerplate.svg?style=flat)](https://npmjs.org/package/generator-nm-boilerplate)
+[![Travis CI](https://travis-ci.org/ZYSzys/generator-nm-boilerplate.svg?branch=master)](https://travis-ci.org/ZYSzys/generator-nm-boilerplate)
+[![NPM downloads](http://img.shields.io/npm/dm/generator-nm-boilerplate.svg?style=flat)](https://npmjs.org/package/generator-nm-boilerplate)
+[![license](https://img.shields.io/github/license/ZYSzys/generator-nm-boilerplate.svg)](https://github.com/ZYSzys/generator-nm-boilerplate/blob/master/LICENSE)
+
 > Boilerplate for scaffold out a node module
 
 ## Installation
