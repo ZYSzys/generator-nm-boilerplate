@@ -46,9 +46,6 @@
     "chalk": "^2.1.0",
     "yosay": "^2.0.1"
   },
-  "jest": {
-    "testEnvironment": "node"
-  },
   "scripts": {
     "prepublishOnly": "nsp check",
     "precommit": "lint-staged",
