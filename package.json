@@ -42,7 +42,7 @@
     "normalize-url": "^2.0.0",
     "superb": "^2.0.0",
     "underscore.string": "^3.0.3",
-    "yeoman-generator": "^2.0.1",
+    "yeoman-generator": "^3.0.0",
     "chalk": "^2.1.0",
     "yosay": "^2.0.1"
   },
