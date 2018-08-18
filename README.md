@@ -21,23 +21,19 @@
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-nm-boilerplate using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+Install [Yeoman](http://yeoman.io) and generator-nm-boilerplate using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
 npm install -g generator-nm-boilerplate
 ```
 
-Then generate your new project:
+## Usage
+
+Generate your new project:
 
 ```bash
 yo nm-boilerplate
-```
-
-## Usage
-
-```
-$ yo node
 ```
 
 *Note that this template will generate files in the current directory, so be sure to change to a new directory first if you don't want to overwrite existing files.*
