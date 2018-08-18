@@ -10,6 +10,13 @@ module.exports = class extends Generator {
   constructor (a, b) {
     super(a, b)
 
+    this.option('generateInto', {
+      type: String,
+      required: false,
+      defaults: '',
+      desc: 'Relocate the location of the generated files.'
+    })
+
     this.option('org', {
       type: 'string',
       desc: 'Publish to a GitHub organization account'
