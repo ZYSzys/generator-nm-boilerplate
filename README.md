@@ -7,6 +7,16 @@
 
 > Boilerplate for scaffold out a node module
 
+## Features
+
+- Unit test using [ava](https://github.com/avajs/ava)
+- ESLint using [standard](https://github.com/standard/standard)
+- CI using [Travis](https://travis-ci.org/)
+- License using [MIT](https://mit-license.org/) 
+- Dependency update automation using [renovate](https://github.com/renovatebot/renovate)
+- Optionally add coverage report
+- Optionally add CLI
+
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and generator-nm-boilerplate using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
@@ -21,6 +31,25 @@ Then generate your new project:
 ```bash
 yo nm-boilerplate
 ```
+
+## Usage
+
+```
+$ yo node
+```
+
+*Note that this template will generate files in the current directory, so be sure to change to a new directory first if you don't want to overwrite existing files.*
+
+That'll generate a project with all the common tools setup. This includes:
+
+- Filled `package.json` file
+- [ava](https://github.com/avajs/ava) unit test and code coverage (optionally tracked on [codecov](https://codecov.io/))
+- [eslint](http://eslint.org/) linting and code style checking [standard](https://github.com/standard/standard)
+- [nsp](https://nodesecurity.io/) known vulnerability check
+- [Travis CI](https://travis-ci.org/) continuous integration
+- [License](https://spdx.org/licenses/) using MIT
+- [Renovate](https://github.com/renovatebot/renovate) dependency update automation
+
 
 ## Getting To Know Yeoman
 

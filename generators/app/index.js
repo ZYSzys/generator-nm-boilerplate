@@ -119,9 +119,21 @@ module.exports = class extends Generator {
 
   git () {
     this.spawnCommandSync('git', ['init'])
+
+    const pkg = this.fs.readJSON(this.destinationPath(this.options.generateInto, 'package.json'), {})
+    if (pkg.repository && !this.originUrl) {
+      let repoSSH = pkg.repository
+      if (pkg.repository && pkg.repository.indexOf('.git') === -1) {
+        repoSSH = 'git@github.com:' + pkg.repository + '.git'
+      }
+
+      this.spawnCommandSync('git', ['remote', 'add', 'origin', repoSSH], {
+        cwd: this.destinationPath(this.options.generateInto)
+      })
+    }
   }
 
   install () {
-    this.installDependencies({bower: false})
+    this.installDependencies({ bower: false })
   }
 }
