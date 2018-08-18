@@ -7,6 +7,8 @@
 
 > Boilerplate for scaffold out a node module
 
+![](/screenshot.png)
+
 ## Features
 
 - Unit test using [ava](https://github.com/avajs/ava)
