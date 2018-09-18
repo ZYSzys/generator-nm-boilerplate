@@ -116,7 +116,6 @@ module.exports = class extends Generator {
       }
 
       mv('editorconfig', '.editorconfig')
-      mv('gitattributes', '.gitattributes')
       mv('gitignore', '.gitignore')
       mv('travis.yml', '.travis.yml')
       mv('npmrc', '.npmrc')
