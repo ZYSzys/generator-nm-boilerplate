@@ -1,43 +1,43 @@
 {
-	"name": "<%= moduleName %>",
-	"version": "0.0.0",
-	"description": "<%= moduleDescription %>",
-	"license": "MIT",
-	"repository": "<%= githubUsername %>/<%= repoName %>",
-	"author": {
-		"name": "<%= name %>",
-		"email": "<%= email %>",
-		"url": "<%= humanizedWebsite %>"
-	},<% if (cli) { %>
-	"bin": "cli.js",<% } %>
-	"engines": {
-		"node": ">=6"
-	},
-	"scripts": {
-		"test": "standard && <% if (nyc) { %>nyc <% } %>ava"
-	},
-	"files": [
-		"index.js"<% if (cli) { %>,
-		"cli.js"<% } %>
-	],
-	"keywords": [<% if (cli) { %>
-		"cli-app",
-		"cli",<% } %>
-		""
-	],
-	"dependencies": {<% if (cli) { %>
-		"meow": "5.0.0"
-	<% } %>},
-	"devDependencies": {
-		"ava": "0.25.0",<% if (codecov) { %>
-		"codecov": "3.0.0",<% } %><% if (nyc) { %>
-		"nyc": "12.0.0",<% } %>
-		"standard": "*"
-	}<% if (codecov) { %>,
-	"nyc": {
-		"reporter": [
-			"lcov",
-			"text"
-		]
-	}<% } %>
+  "name": "<%= moduleName %>",
+  "version": "0.0.0",
+  "description": "<%= moduleDescription %>",
+  "license": "MIT",
+  "repository": "<%= githubUsername %>/<%= repoName %>",
+  "author": {
+    "name": "<%= name %>",
+    "email": "<%= email %>",
+    "url": "<%= humanizedWebsite %>"
+  },<% if (cli) { %>
+  "bin": "cli.js",<% } %>
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "test": "standard && <% if (nyc) { %>nyc <% } %>ava"
+  },
+  "files": [
+    "index.js"<% if (cli) { %>,
+    "cli.js"<% } %>
+  ],
+  "keywords": [<% if (cli) { %>
+    "cli-app",
+    "cli",<% } %>
+    ""
+  ],
+  "dependencies": {<% if (cli) { %>
+    "meow": "5.0.0"
+  <% } %>},
+  "devDependencies": {
+    "ava": "0.25.0",<% if (codecov) { %>
+    "codecov": "3.0.0",<% } %><% if (nyc) { %>
+    "nyc": "12.0.0",<% } %>
+    "standard": "*"
+  }<% if (codecov) { %>,
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  }<% } %>
 }
