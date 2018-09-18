@@ -14,7 +14,8 @@
     "node": ">=6"
   },
   "scripts": {
-    "test": "standard && <% if (nyc) { %>nyc <% } %>ava"
+    "test": "npm run lint && <% if (nyc) { %>nyc <% } %>ava",
+    "lint": "standard"
   },
   "files": [
     "index.js"<% if (cli) { %>,
