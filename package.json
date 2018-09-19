@@ -1,6 +1,6 @@
 {
   "name": "generator-nm-boilerplate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Boilerplate for scaffold out a node module",
   "homepage": "https://github.com/ZYSzys/generator-nm-boilerplate",
   "author": {
