@@ -1,21 +1,8 @@
 #!/usr/bin/env node
 'use strict'
 
-const meow = require('meow')
 const <%= camelModuleName %> = require('.')
 
-const cli = meow(`
-  Usage
-    $ <%= repoName %> [input]
+const args = process.argv.slice(2)
 
-  Options
-    --foo  Lorem ipsum [Default: false]
-
-  Examples
-    $ <%= repoName %>
-    unicorns & rainbows
-    $ <%= repoName %> ponies
-    ponies & rainbows
-`)
-
-console.log(<%= camelModuleName %>(cli.input[0] || 'unicorns'))
+console.log(<%= camelModuleName %>(args[0] || 'unicorns'))

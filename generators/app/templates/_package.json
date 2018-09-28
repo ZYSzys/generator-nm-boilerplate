@@ -14,7 +14,7 @@
     "node": ">=6"
   },
   "scripts": {
-    "test": "npm run lint && <% if (nyc) { %>nyc <% } %>ava",
+    "test": "npm run lint && <% if (nyc) { %>nyc <% } %>ava -v",
     "lint": "standard --fix"
   },
   "files": [
@@ -26,13 +26,11 @@
     "cli",<% } %>
     ""
   ],
-  "dependencies": {<% if (cli) { %>
-    "meow": "5.0.0"
-  <% } %>},
+  "dependencies": {},
   "devDependencies": {
     "ava": "0.25.0",<% if (codecov) { %>
-    "codecov": "3.0.0",<% } %><% if (nyc) { %>
-    "nyc": "12.0.0",<% } %>
+    "codecov": "3.1.0",<% } %><% if (nyc) { %>
+    "nyc": "13.0.1",<% } %>
     "standard": "*"
   }<% if (codecov) { %>,
   "nyc": {

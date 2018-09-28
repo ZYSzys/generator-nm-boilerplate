@@ -7,7 +7,7 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) 
 [![license](https://img.shields.io/github/license/<%= githubUsername %>/<%= repoName %>.svg)](https://github.com/<%= githubUsername %>/<%= repoName %>/blob/master/LICENSE)
 
-> <%= moduleDescription %>
+> <%= moduleDescription %><% if (!cli) { %>
 
 
 ## Install
@@ -46,15 +46,14 @@ Type: `Object`
 Type: `boolean`<br>
 Default: `false`
 
-Lorem ipsum.<% if (cli) { %>
-
-
-## CLI
+Lorem ipsum.<% } %><% if (cli) { %>
+## Install
 
 ```
 $ npm install --global <%= moduleName %>
 ```
 
+## Usage
 ```
 $ <%= repoName %> --help
 
