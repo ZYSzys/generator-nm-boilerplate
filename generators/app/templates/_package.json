@@ -15,7 +15,7 @@
   },
   "scripts": {
     "test": "npm run lint && <% if (nyc) { %>nyc <% } %>ava -v",
-    "lint": "standard --fix"
+    "lint": "prettier --single-quote --write *.js"
   },
   "files": [
     "index.js"<% if (cli) { %>,
@@ -31,7 +31,7 @@
     "ava": "0.25.0",<% if (codecov) { %>
     "codecov": "3.1.0",<% } %><% if (nyc) { %>
     "nyc": "13.0.1",<% } %>
-    "standard": "*"
+    "prettier": "*"
   }<% if (codecov) { %>,
   "nyc": {
     "reporter": [

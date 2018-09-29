@@ -1,8 +1,9 @@
 #!/usr/bin/env node
-'use strict'
 
-const <%= camelModuleName %> = require('.')
+'use strict';
 
-const args = process.argv.slice(2)
+const <%= camelModuleName %> = require('.');
 
-console.log(<%= camelModuleName %>(args[0] || 'unicorns'))
+const args = process.argv.slice(2);
+
+console.log(<%= camelModuleName %>(args[0] || 'unicorns'));
