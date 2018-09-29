@@ -22,14 +22,9 @@
     "module"
   ],
   "devDependencies": {
-    "coveralls": "3.0.2",
-    "eslint": "5.6.1",
-    "eslint-config-standard": "12.0.0",
-    "eslint-plugin-standard": "4.0.0",
     "husky": "1.0.1",
-    "lint-staged": "7.3.0",
     "nsp": "3.2.1",
-    "standard": "12.0.1",
+    "prettier": "1.14.3",
     "yeoman-assert": "3.1.1",
     "yeoman-test": "1.9.1"
   },
@@ -48,25 +43,7 @@
   },
   "scripts": {
     "prepublishOnly": "nsp check",
-    "precommit": "lint-staged",
-    "test": "eslint ."
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "standard"
-    ],
-    "env": {
-      "node": true
-    },
-    "plugins": [
-      "standard"
-    ]
+    "test": "prettier --single-quote --write ./generators/app/*.js"
   },
   "repository": "ZYSzys/generator-nm-boilerplate",
   "license": "MIT"

@@ -1,91 +1,106 @@
-'use strict'
-const superb = require('superb')
-const normalizeUrl = require('normalize-url')
-const humanizeUrl = require('humanize-url')
-const Generator = require('yeoman-generator')
-const _s = require('underscore.string')
-const utils = require('./utils')
+'use strict';
+const superb = require('superb');
+const normalizeUrl = require('normalize-url');
+const humanizeUrl = require('humanize-url');
+const Generator = require('yeoman-generator');
+const _s = require('underscore.string');
+const utils = require('./utils');
 
 module.exports = class extends Generator {
-  constructor (a, b) {
-    super(a, b)
+  constructor(a, b) {
+    super(a, b);
 
     this.option('generateInto', {
       type: String,
       required: false,
       defaults: '',
       desc: 'Relocate the location of the generated files.'
-    })
+    });
 
     this.option('org', {
       type: 'string',
       desc: 'Publish to a GitHub organization account'
-    })
+    });
 
     this.option('cli', {
       type: 'boolean',
       desc: 'Add a CLI'
-    })
+    });
 
     this.option('coverage', {
       type: 'boolean',
       desc: 'Add code coverage with nyc'
-    })
+    });
 
     this.option('codecov', {
       type: 'boolean',
       desc: 'Upload coverage to codecov.io (implies coverage)'
-    })
+    });
   }
 
-  init () {
-    return this.prompt([{
-      name: 'moduleName',
-      message: 'What do you want to name your module?',
-      default: _s.slugify(this.appname),
-      filter: x => utils.slugifyPackageName(x)
-    }, {
-      name: 'moduleDescription',
-      message: 'What is your module description?',
-      default: `My ${superb.random()} module`
-    }, {
-      name: 'githubUsername',
-      message: 'What is your GitHub username?',
-      store: true,
-      validate: x => x.length > 0 ? true : 'You have to provide a username',
-      when: () => !this.options.org
-    }, {
-      name: 'website',
-      message: 'What is the URL of your website?',
-      store: true,
-      validate: x => x.length > 0 ? true : 'You have to provide a website URL',
-      filter: x => normalizeUrl(x)
-    }, {
-      name: 'cli',
-      message: 'Do you need a CLI?',
-      type: 'confirm',
-      default: Boolean(this.options.cli),
-      when: () => this.options.cli === undefined
-    }, {
-      name: 'nyc',
-      message: 'Do you need code coverage?',
-      type: 'confirm',
-      default: Boolean(this.options.codecov || this.options.coverage),
-      when: () => (this.options.coverage === undefined) && (this.options.codecov === undefined)
-    }, {
-      name: 'codecov',
-      message: 'Upload coverage to codecov.io?',
-      type: 'confirm',
-      default: false,
-      when: x => (x.nyc || this.options.coverage) && (this.options.codecov === undefined)
-    }]).then(props => {
-      const or = (option, prop) => this.options[option] === undefined ? props[prop || option] : this.options[option]
+  init() {
+    return this.prompt([
+      {
+        name: 'moduleName',
+        message: 'What do you want to name your module?',
+        default: _s.slugify(this.appname),
+        filter: x => utils.slugifyPackageName(x)
+      },
+      {
+        name: 'moduleDescription',
+        message: 'What is your module description?',
+        default: `My ${superb.random()} module`
+      },
+      {
+        name: 'githubUsername',
+        message: 'What is your GitHub username?',
+        store: true,
+        validate: x => (x.length > 0 ? true : 'You have to provide a username'),
+        when: () => !this.options.org
+      },
+      {
+        name: 'website',
+        message: 'What is the URL of your website?',
+        store: true,
+        validate: x =>
+          x.length > 0 ? true : 'You have to provide a website URL',
+        filter: x => normalizeUrl(x)
+      },
+      {
+        name: 'cli',
+        message: 'Do you need a CLI?',
+        type: 'confirm',
+        default: Boolean(this.options.cli),
+        when: () => this.options.cli === undefined
+      },
+      {
+        name: 'nyc',
+        message: 'Do you need code coverage?',
+        type: 'confirm',
+        default: Boolean(this.options.codecov || this.options.coverage),
+        when: () =>
+          this.options.coverage === undefined &&
+          this.options.codecov === undefined
+      },
+      {
+        name: 'codecov',
+        message: 'Upload coverage to codecov.io?',
+        type: 'confirm',
+        default: false,
+        when: x =>
+          (x.nyc || this.options.coverage) && this.options.codecov === undefined
+      }
+    ]).then(props => {
+      const or = (option, prop) =>
+        this.options[option] === undefined
+          ? props[prop || option]
+          : this.options[option];
 
-      const cli = or('cli')
-      const codecov = or('codecov')
-      const nyc = codecov || or('coverage', 'nyc')
+      const cli = or('cli');
+      const codecov = or('codecov');
+      const nyc = codecov || or('coverage', 'nyc');
 
-      const repoName = utils.repoName(props.moduleName)
+      const repoName = utils.repoName(props.moduleName);
 
       const tpl = {
         moduleName: props.moduleName,
@@ -100,46 +115,54 @@ module.exports = class extends Generator {
         cli,
         nyc,
         codecov
-      }
+      };
 
       const mv = (from, to) => {
-        this.fs.move(this.destinationPath(from), this.destinationPath(to))
-      }
+        this.fs.move(this.destinationPath(from), this.destinationPath(to));
+      };
 
-      this.fs.copyTpl([
-        `${this.templatePath()}/**`,
-        '!**/cli.js'
-      ], this.destinationPath(), tpl)
+      this.fs.copyTpl(
+        [`${this.templatePath()}/**`, '!**/cli.js'],
+        this.destinationPath(),
+        tpl
+      );
 
       if (cli) {
-        this.fs.copyTpl(this.templatePath('cli.js'), this.destinationPath('cli.js'), tpl)
+        this.fs.copyTpl(
+          this.templatePath('cli.js'),
+          this.destinationPath('cli.js'),
+          tpl
+        );
       }
 
-      mv('editorconfig', '.editorconfig')
-      mv('gitignore', '.gitignore')
-      mv('travis.yml', '.travis.yml')
-      mv('npmrc', '.npmrc')
-      mv('_package.json', 'package.json')
-    })
+      mv('editorconfig', '.editorconfig');
+      mv('gitignore', '.gitignore');
+      mv('travis.yml', '.travis.yml');
+      mv('npmrc', '.npmrc');
+      mv('_package.json', 'package.json');
+    });
   }
 
-  git () {
-    this.spawnCommandSync('git', ['init'])
+  git() {
+    this.spawnCommandSync('git', ['init']);
 
-    const pkg = this.fs.readJSON(this.destinationPath(this.options.generateInto, 'package.json'), {})
+    const pkg = this.fs.readJSON(
+      this.destinationPath(this.options.generateInto, 'package.json'),
+      {}
+    );
     if (pkg.repository && !this.originUrl) {
-      let repoSSH = pkg.repository
+      let repoSSH = pkg.repository;
       if (pkg.repository && pkg.repository.indexOf('.git') === -1) {
-        repoSSH = 'git@github.com:' + pkg.repository + '.git'
+        repoSSH = 'git@github.com:' + pkg.repository + '.git';
       }
 
       this.spawnCommandSync('git', ['remote', 'add', 'origin', repoSSH], {
         cwd: this.destinationPath(this.options.generateInto)
-      })
+      });
     }
   }
 
-  install () {
-    this.installDependencies({ bower: false })
+  install() {
+    this.installDependencies({ bower: false });
   }
-}
+};

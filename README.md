@@ -3,6 +3,7 @@
 [![NPM version](https://img.shields.io/npm/v/generator-nm-boilerplate.svg?style=flat)](https://npmjs.org/package/generator-nm-boilerplate)
 [![Travis CI](https://travis-ci.org/ZYSzys/generator-nm-boilerplate.svg?branch=master)](https://travis-ci.org/ZYSzys/generator-nm-boilerplate)
 [![NPM downloads](http://img.shields.io/npm/dm/generator-nm-boilerplate.svg?style=flat)](https://npmjs.org/package/generator-nm-boilerplate)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier)
 [![license](https://img.shields.io/github/license/ZYSzys/generator-nm-boilerplate.svg)](https://github.com/ZYSzys/generator-nm-boilerplate/blob/master/LICENSE)
 
 > Boilerplate for scaffold out a node module
@@ -12,7 +13,7 @@
 ## Features
 
 - Unit test using [ava](https://github.com/avajs/ava)
-- ESLint using [standard](https://github.com/standard/standard)
+- ESLint using [prettier](https://github.com/prettier/prettier)
 - CI using [Travis](https://travis-ci.org/)
 - License using [MIT](https://mit-license.org/) 
 - Dependency update automation using [renovate](https://github.com/renovatebot/renovate)
@@ -42,7 +43,7 @@ That'll generate a project with all the common tools setup. This includes:
 
 - Filled `package.json` file
 - [ava](https://github.com/avajs/ava) unit test and code coverage (optionally tracked on [codecov](https://codecov.io/))
-- [eslint](http://eslint.org/) linting and code style checking [standard](https://github.com/standard/standard)
+- [eslint](http://eslint.org/) linting and code style checking [prettier](https://github.com/prettier/prettier)
 - [nsp](https://nodesecurity.io/) known vulnerability check
 - [Travis CI](https://travis-ci.org/) continuous integration
 - [License](https://spdx.org/licenses/) using MIT
@@ -59,13 +60,3 @@ That'll generate a project with all the common tools setup. This includes:
 ## License
 
 MIT © [ZYSzys](zyszys.top)
-
-
-[npm-image]: https://badge.fury.io/js/generator-nm-boilerplate.svg
-[npm-url]: https://npmjs.org/package/generator-nm-boilerplate
-[travis-image]: https://travis-ci.org/ZYSzys/generator-nm-boilerplate.svg?branch=master
-[travis-url]: https://travis-ci.org/ZYSzys/generator-nm-boilerplate
-[daviddm-image]: https://david-dm.org/ZYSzys/generator-nm-boilerplate.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/ZYSzys/generator-nm-boilerplate
-[coveralls-image]: https://coveralls.io/repos/ZYSzys/generator-nm-boilerplate/badge.svg
-[coveralls-url]: https://coveralls.io/r/ZYSzys/generator-nm-boilerplate
