@@ -32,7 +32,7 @@
     "npm": ">= 4.0.0"
   },
   "dependencies": {
-    "humanize-url": "^1.0.1",
+    "humanize-url": "^2.0.0",
     "is-scoped": "^1.0.0",
     "normalize-url": "^3.0.0",
     "superb": "^3.0.0",
