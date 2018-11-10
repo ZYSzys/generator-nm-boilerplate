@@ -15,7 +15,7 @@
   },
   "scripts": {
     "test": "npm run lint && <% if (nyc) { %>nyc <% } %>ava -v",
-    "lint": "prettier --single-quote --write *.js"
+    "lint": "prettier --write *.js"
   },
   "files": [
     "index.js"<% if (cli) { %>,
