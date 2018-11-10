@@ -135,11 +135,12 @@ module.exports = class extends Generator {
         );
       }
 
+      mv('_package.json', 'package.json');
       mv('editorconfig', '.editorconfig');
       mv('gitignore', '.gitignore');
-      mv('travis.yml', '.travis.yml');
       mv('npmrc', '.npmrc');
-      mv('_package.json', 'package.json');
+      mv('prettierrc', '.prettierrc');
+      mv('travis.yml', '.travis.yml');
     });
   }
 
