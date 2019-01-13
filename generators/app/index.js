@@ -138,7 +138,6 @@ module.exports = class extends Generator {
       mv('_package.json', 'package.json');
       mv('editorconfig', '.editorconfig');
       mv('gitignore', '.gitignore');
-      mv('npmrc', '.npmrc');
       mv('prettierrc', '.prettierrc');
       mv('travis.yml', '.travis.yml');
     });
